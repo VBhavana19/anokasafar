@@ -1,0 +1,79 @@
+.home {
+    min-height: 100vh;
+}
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #1a1a1a;
+}
+
+.nav-link {
+    color: #1a1a1a !important;
+    margin: 0 10px;
+}
+
+.btn-dark {
+    background-color: #1a1a1a;
+    color: #ffffff !important;
+    padding: 8px 20px;
+    border-radius: 0;
+}
+
+.hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('/public/herobg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content h2 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.btn-explore {
+    background-color: #ffa500;
+    color: #1a1a1a;
+    padding: 15px 40px;
+    border-radius: 0;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-explore:hover {
+    background-color: #ff8c00;
+    transform: translateX(10px);
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+}
