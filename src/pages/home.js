@@ -1,8 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import './home.css';
 
 const Home = () => {
+    const [destinationRef, destinationInView] = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    });
+
+    const [planningRef, planningInView] = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    });
+
     return (
         <div className="home">
             {/* Existing Navigation */}
@@ -46,7 +58,13 @@ const Home = () => {
             </header>
 
             {/* Seasonal Destinations Section */}
-            <section className="destinations-section">
+            <motion.section 
+                className="destinations-section"
+                ref={destinationRef}
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: destinationInView ? 1 : 0, y: destinationInView ? 0 : 100 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+            >
                 <div className="container">
                     <div className="season-tabs">
                         <div className="season-item">
@@ -72,36 +90,67 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
-            {/* Trip Planning Section */}
-            <section className="planning-section">
+            {/* Animated Planning Section */}
+            <motion.section 
+                className="planning-section"
+                ref={planningRef}
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: planningInView ? 1 : 0, y: planningInView ? 0 : 100 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+            >
                 <div className="container">
-                    <h2>We'll Handle Your Trip For You</h2>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: planningInView ? 1 : 0, y: planningInView ? 0 : 50 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                        We'll Handle Your Trip For You
+                    </motion.h2>
                     <div className="planning-grid">
-                        <div className="planning-card">
-                            <i className="fas fa-map-marked-alt"></i>
-                            <h4>Popular Places</h4>
-                            <p>Discover the most sought-after destinations</p>
-                        </div>
-                        <div className="planning-card">
-                            <i className="fas fa-hotel"></i>
-                            <h4>Hotel Booking</h4>
-                            <p>Find perfect accommodations worldwide</p>
-                        </div>
-                        <div className="planning-card">
-                            <i className="fas fa-plane"></i>
-                            <h4>Flight Booking</h4>
-                            <p>Book your flights with best deals</p>
-                        </div>
-                        <div className="planning-card">
-                            <i className="fas fa-hiking"></i>
-                            <h4>Tours & Activities</h4>
-                            <p>Experience local adventures and tours</p>
-                        </div>
+                        {[0, 1, 2, 3].map((index) => (
+                            <motion.div
+                                key={index}
+                                className="planning-card"
+                                initial={{ opacity: 0, y: 50 }}
+                                animate={{ opacity: planningInView ? 1 : 0, y: planningInView ? 0 : 50 }}
+                                transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+                            >
+                                {/* Keep existing card content but wrap in motion.div */}
+                                {index === 0 && (
+                                    <>
+                                        <i className="fas fa-map-marked-alt"></i>
+                                        <h4>Popular Places</h4>
+                                        <p>Discover the most sought-after destinations</p>
+                                    </>
+                                )}
+                                {index === 1 && (
+                                    <>
+                                        <i className="fas fa-hotel"></i>
+                                        <h4>Hotel Booking</h4>
+                                        <p>Find perfect accommodations worldwide</p>
+                                    </>
+                                )}
+                                {index === 2 && (
+                                    <>
+                                        <i className="fas fa-plane"></i>
+                                        <h4>Flight Booking</h4>
+                                        <p>Book your flights with best deals</p>
+                                    </>
+                                )}
+                                {index === 3 && (
+                                    <>
+                                        <i className="fas fa-hiking"></i>
+                                        <h4>Tours & Activities</h4>
+                                        <p>Experience local adventures and tours</p>
+                                    </>
+                                )}
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
             {/* Testimonials Section */}
             <section className="testimonials-section">
