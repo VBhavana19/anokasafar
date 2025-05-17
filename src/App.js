@@ -4,6 +4,7 @@ import Home from './pages/home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import FlightTicketCarousel from './pages/test';
+import Destinations from './pages/destinations';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/test" element={<FlightTicketCarousel />} />
         {/* Add more routes as needed */}
+        <Route path="/destinations" element={<Destinations />} />
       </Routes>
     </Router>
   );

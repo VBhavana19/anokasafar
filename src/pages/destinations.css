@@ -1,0 +1,168 @@
+.destinations-page {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.destinations-hero {
+    height: 60vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('/public/herobg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-bottom: 4rem;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+}
+
+.cities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.city-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.city-card:hover {
+    transform: translateY(-10px);
+}
+
+.city-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.city-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.city-card:hover .city-image img {
+    transform: scale(1.1);
+}
+
+.city-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+}
+
+.city-overlay h3 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.city-overlay span {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.city-info {
+    padding: 1.5rem;
+}
+
+.highlights {
+    margin: 1rem 0;
+}
+
+.highlights h4 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.highlights ul {
+    list-style: none;
+    padding: 0;
+}
+
+.highlights li {
+    padding: 0.3rem 0;
+    color: #666;
+}
+
+.highlights li:before {
+    content: "•";
+    color: #ffa500;
+    margin-right: 8px;
+}
+
+.explore-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ffa500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.explore-btn:hover {
+    background: #ff8c00;
+}
+
+.destination-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 4rem 2rem;
+    background: white;
+    margin-top: 4rem;
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature i {
+    font-size: 2.5rem;
+    color: #ffa500;
+    margin-bottom: 1rem;
+}
+
+.feature h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.feature p {
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .destination-features {
+        grid-template-columns: 1fr;
+    }
+}
