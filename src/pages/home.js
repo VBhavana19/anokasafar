@@ -40,6 +40,9 @@ const Home = () => {
                             <li className="nav-item">
                                 <Link className="nav-link btn btn-dark" to="/plan">PLAN YOUR TRIP</Link>
                             </li>
+                             <li className="nav-item">
+                                <Link className="nav-link" to="/test">Test</Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -48,8 +51,8 @@ const Home = () => {
             <header className="hero-section">
                 <div className="container">
                     <div className="hero-content">
-                        <h1>BOUTIQUE TRAVEL AGENCY</h1>
-                        <h2>DISCOVER UNIQUE TRAVEL EXPERIENCES WITH VOYAGER</h2>
+                        <h1>Time For Your Next Adventure</h1>
+                        <h2>DISCOVER UNIQUE TRAVEL EXPERIENCES WITH ANOKA SAFAR</h2>
                         <Link to="/explore" className="btn btn-explore">EXPLORE</Link>
                     </div>
                 </div>
