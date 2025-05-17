@@ -17,7 +17,6 @@ const Home = () => {
 
     return (
         <div className="home">
-            {/* Existing Navigation */}
             <nav className="navbar navbar-expand-lg">
                 <div className="container">
                     <Link className="navbar-brand" to="/">Voyager</Link>
@@ -46,7 +45,6 @@ const Home = () => {
                 </div>
             </nav>
 
-            {/* Existing Hero Section */}
             <header className="hero-section">
                 <div className="container">
                     <div className="hero-content">
@@ -57,7 +55,6 @@ const Home = () => {
                 </div>
             </header>
 
-            {/* Seasonal Destinations Section */}
             <motion.section 
                 className="destinations-section"
                 ref={destinationRef}
@@ -92,7 +89,6 @@ const Home = () => {
                 </div>
             </motion.section>
 
-            {/* Animated Planning Section */}
             <motion.section 
                 className="planning-section"
                 ref={planningRef}
@@ -152,7 +148,7 @@ const Home = () => {
                 </div>
             </motion.section>
 
-            {/* Testimonials Section */}
+            
             <section className="testimonials-section">
                 <div className="container">
                     <h2>Our Favorite Travelers</h2>
@@ -176,7 +172,7 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Footer */}
+            
             <footer className="footer">
                 <div className="container">
                     <div className="footer-content">
