@@ -41,6 +41,9 @@ const Home = () => {
                             <li className="nav-item">
                                 <Link className="nav-link btn btn-dark" to="/plan">PLAN YOUR TRIP</Link>
                             </li>
+                             <li className="nav-item">
+                                <Link className="nav-link" to="/test">Test</Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
