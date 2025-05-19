@@ -15,11 +15,26 @@ const Home = () => {
         threshold: 0.2
     });
 
+    React.useEffect(() => {
+        const handleScroll = () => {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            const flightIcon = document.querySelector('.flight-icon');
+            if (flightIcon) {
+                const maxMove = window.innerWidth - 50; // Adjust 50 based on icon size
+                const move = (maxMove * scrollPercent) / 100;
+                flightIcon.style.setProperty('--scroll', `${move}px`);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
         <div className="home">
             <nav className="navbar navbar-expand-lg">
                 <div className="container">
-                    <Link className="navbar-brand" to="/">Voyager</Link>
+                    <Link className="navbar-brand" to="/">Anokha safar</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -58,6 +73,15 @@ const Home = () => {
                 </div>
             </header>
 
+            <div className="flight-path-container">
+                <div className="flight-path">
+                    <div className="flight-icon">
+                        <i className="fas fa-plane"></i>
+                    </div>
+                    <div className="path-line"></div>
+                </div>
+            </div>
+
             <motion.section 
                 className="destinations-section"
                 ref={destinationRef}
@@ -71,7 +95,7 @@ const Home = () => {
                             <h3>Spring Destinations</h3>
                             <div className="season-content">
                                 <img src="/spring.jpg" alt="Spring Travel" />
-                                <button className="season-btn">Explore Spring</button>
+                                <Link to="/spring-destinations" className="season-btn">Explore Spring</Link>
                             </div>
                         </div>
                         <div className="season-item">
