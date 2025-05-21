@@ -30,6 +30,124 @@ const Home = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+
+
+
+
+
+
+
+
+    const cityTickets = [
+        {
+            place: 'PARIS · FRANCE',
+            code: 'CDG',
+            image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
+        },
+        {
+            place: 'TOKYO · JAPAN',
+            code: 'NRT',
+            image: 'https://images.unsplash.com/photo-1465156799763-2c087c332922?auto=format&fit=crop&w=600&q=80',
+        },
+        {
+            place: 'BALI · INDONESIA',
+            code: 'DPS',
+            image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80',
+        },
+        {
+            place: 'TUSCANY · ITALY',
+            code: 'FLR',
+            image: 'C:\Users\vanum\OneDrive\Desktop\pics\IMG_0364.JPG',
+        },
+    ];
+    
+    function TicketGrid() {
+      return (
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          gap: '24px',
+          padding: '40px 0 0 0',
+          borderTop: '4px solid #ededed',
+          background: '#f7f7f7'
+        }}>
+          {cityTickets.map((item, idx) => (
+            <div key={idx} style={{
+              width: 420,
+              background: '#f6f6f6',
+              borderRadius: 8,
+              border: '2px solid #eaeaea',
+              boxShadow: '0 4px 18px rgba(0,0,0,0.06)',
+              overflow: 'hidden',
+              display: 'flex',
+              flexDirection: 'column',
+              marginBottom: 24,
+            }}>
+              <div style={{ padding: 0, textAlign: 'center', background: '#ededed' }}>
+                <h2 style={{
+                  padding: '18px 0 0 0',
+                  fontSize: 30,
+                  fontWeight: 500,
+                  margin: 0,
+                  letterSpacing: 1,
+                  color: '#313131'
+                }}>{item.place}</h2>
+              </div>
+              <img
+                src={item.image}
+                alt={item.place}
+                style={{ width: '100%', height: 340, objectFit: 'cover', border: 0 }}
+              />
+              <div style={{
+                padding: '18px 28px 0 28px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between'
+              }}>
+                <div style={{ fontSize: 44, fontWeight: 400, fontFamily: 'monospace' }}>{item.code}</div>
+                <div style={{
+                  width: 120,
+                  height: 32,
+                  background: 'repeating-linear-gradient(90deg, #232323 0 7px, transparent 7px 12px)',
+                  borderRadius: 3,
+                  marginLeft: 16
+                }} />
+              </div>
+              <div style={{
+                borderTop: '2px dashed #e1e1e1',
+                margin: '16px 0 0 0',
+                padding: '14px 28px 14px 28px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                fontSize: 26,
+                color: '#474747'
+              }}>
+                <span style={{ fontSize: 24 }}>EXPLORE</span>
+                <span style={{
+                  fontSize: 33,
+                  border: '2px solid #232323',
+                  borderRadius: '50%',
+                  width: 36,
+                  height: 36,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>&#8594;</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    }        
+
+
+
+
+
+
+
+
     return (
         <div className="home">
             <nav className="navbar navbar-expand-lg">
@@ -82,39 +200,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <motion.section 
-                className="destinations-section"
-                ref={destinationRef}
-                initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: destinationInView ? 1 : 0, y: destinationInView ? 0 : 100 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-                <div className="container">
-                    <div className="season-tabs">
-                        <div className="season-item">
-                            <h3>Spring Destinations</h3>
-                            <div className="season-content">
-                                <img src="/spring.jpg" alt="Spring Travel" />
-                                <Link to="/spring-destinations" className="season-btn">Explore Spring</Link>
-                            </div>
-                        </div>
-                        <div className="season-item">
-                            <h3>Summer Destinations</h3>
-                            <div className="season-content">
-                                <img src="/summer.jpg" alt="Summer Travel" />
-                                <button className="season-btn">Explore Summer</button>
-                            </div>
-                        </div>
-                        <div className="season-item">
-                            <h3>Winter Destinations</h3>
-                            <div className="season-content">
-                                <img src="/winter.jpg" alt="Winter Travel" />
-                                <button className="season-btn">Explore Winter</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </motion.section>
+            
 
             <motion.section 
                 className="planning-section"
@@ -174,6 +260,53 @@ const Home = () => {
                     </div>
                 </div>
             </motion.section>
+             <TicketGrid />
+
+
+
+
+            
+            <motion.section 
+                className="destinations-section"
+                ref={destinationRef}
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: destinationInView ? 1 : 0, y: destinationInView ? 0 : 100 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+                <div className="container">
+                    <div className="season-tabs">
+                        <div className="season-item">
+                            <h3>Spring Destinations</h3>
+                            <div className="season-content">
+                                <img src="/spring.jpg" alt="Spring Travel" />
+                                <Link to="/spring-destinations" className="season-btn">Explore Spring</Link>
+                            </div>
+                        </div>
+                        <div className="season-item">
+                            <h3>Summer Destinations</h3>
+                            <div className="season-content">
+                                <img src="/summer.jpg" alt="Summer Travel" />
+                                <button className="season-btn">Explore Summer</button>
+                            </div>
+                        </div>
+                        <div className="season-item">
+                            <h3>Winter Destinations</h3>
+                            <div className="season-content">
+                                <img src="/winter.jpg" alt="Winter Travel" />
+                                <button className="season-btn">Explore Winter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </motion.section>
+
+            
+
+
+
+
+
+
 
             
             <section className="testimonials-section">
@@ -198,6 +331,14 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+
+
+
+
+            
+
+
 
             
             <footer className="footer">

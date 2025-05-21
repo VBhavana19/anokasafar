@@ -151,15 +151,15 @@ import "swiper/css/pagination";
 const tickets = [
   {
     id: 1,
-    from: "HYD",
-    to: "RJY",
+    from: "Discover Hidden Gems and Off-the-Beaten-Path Destinations",
+    /*to: "RJY",*/
     date: "2025-06-01",
     time: "17:00",
     passenger: "Hema Desuza",
     flight: "AA123",
     seat: "12A",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
-    description: "Experience the Nomads Difference in Your Travel Planning. This is the space to introduce the Services section. Briefly describe the types of services offered and highlight any special benefits or features."
+    image: "charminar.jpg",
+    description: "This is the space to introduce the Services section. Briefly describe the types of services offered and highlight any special benefits or features."
   },
   {
     id: 2,
@@ -182,7 +182,7 @@ const tickets = [
     passenger: "Bhavana Khan",
     flight: "AI456",
     seat: "22C",
-    image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80",
+    image: "charminar.jpg",
     description: "Your journey, our priority. Discover new destinations with exclusive offers and personalized service."
   },
 ];
@@ -220,7 +220,7 @@ function FlightTicketCard({ ticket, index, total }) {
         <div style={{ display: "flex", alignItems: "flex-start" }}>
           <div style={{
             width: 68, minWidth: 68, marginRight: 24, background: "#e15a00", borderRadius: "24px 0 0 24px",
-            display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: 280
+            display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: 300
           }}>
             <br></br>
             <div style={{
@@ -249,7 +249,7 @@ function FlightTicketCard({ ticket, index, total }) {
             color: "#fff",
             border: "none",
             borderRadius: "0 0 24px 24px",
-            padding: "14px 32px",
+            padding: "2px 10px",
             fontSize: 18,
             fontWeight: 500,
             cursor: "pointer",
