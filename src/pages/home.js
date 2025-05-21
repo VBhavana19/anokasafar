@@ -40,24 +40,24 @@ const Home = () => {
 
     const cityTickets = [
         {
-            place: 'PARIS · FRANCE',
-            code: 'CDG',
-            image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
-        },
-        {
-            place: 'TOKYO · JAPAN',
-            code: 'NRT',
-            image: 'https://images.unsplash.com/photo-1465156799763-2c087c332922?auto=format&fit=crop&w=600&q=80',
-        },
-        {
             place: 'BALI · INDONESIA',
-            code: 'DPS',
-            image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80',
+            code: 'CDG',
+            image: '/bali2.jpg',
         },
         {
-            place: 'TUSCANY · ITALY',
+            place: 'KERALA · INDIA',
+            code: 'NRT',
+            image: '/Kerala.jpg',
+        },
+        {
+            place: 'HANOI · VIETNAM',
+            code: 'DPS',
+            image: '/hanoi2.jpg',
+        },
+        {
+            place: 'TBILISI · GEORGIA',
             code: 'FLR',
-            image: 'C:\Users\vanum\OneDrive\Desktop\pics\IMG_0364.JPG',
+            image: '/Tbilisi.jpg',
         },
     ];
     
@@ -77,7 +77,7 @@ const Home = () => {
               background: '#f6f6f6',
               borderRadius: 8,
               border: '2px solid #eaeaea',
-              boxShadow: '0 4px 18px rgba(0,0,0,0.06)',
+              boxShadow: '0 4px 18px rgba(0, 0, 0, 0.1)',
               overflow: 'hidden',
               display: 'flex',
               flexDirection: 'column',
@@ -184,8 +184,8 @@ const Home = () => {
             <header className="hero-section">
                 <div className="container">
                     <div className="hero-content">
-                        <h1>Time For Your Next Adventure</h1>
-                        <h2>DISCOVER UNIQUE TRAVEL EXPERIENCES WITH ANOKA SAFAR</h2>
+                        <h1>DISCOVER UNIQUE TRAVEL EXPERIENCES WITH ANOKA SAFAR</h1>
+                      
                         <Link to="/explore" className="btn btn-explore">EXPLORE</Link>
                     </div>
                 </div>
