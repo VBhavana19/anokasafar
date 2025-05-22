@@ -216,10 +216,14 @@ function FlightTicketCard({ ticket, index, total }) {
         background: "#ededed",
         position: "relative"
       }}>
+
+
+
+
         {/* Barcode & index */}
         <div style={{ display: "flex", alignItems: "flex-start" }}>
           <div style={{
-            width: 68, minWidth: 68, marginRight: 24, background: "#e15a00", borderRadius: "24px 0 0 24px",
+            width: 68, minWidth: 68, marginRight: 24, background: "#e15a00", borderRadius: "24px 0 0 2px",
             display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: 300
           }}>
             <br></br>
@@ -229,6 +233,7 @@ function FlightTicketCard({ ticket, index, total }) {
             }} />
           </div>
           <div>
+            
             <div style={{ fontSize: 36, fontWeight: 500, color: "#222" }}>{index + 1}/{total}</div>
             <div style={{ fontSize: 22, fontWeight: 600, marginBottom: 8 }}>{ticket.from} → {ticket.to}</div>
             <div style={{ fontSize: 16, color: "#444", marginBottom: 12 }}>{ticket.description}</div>
@@ -242,14 +247,18 @@ function FlightTicketCard({ ticket, index, total }) {
             </div>
           </div>
         </div>
-        {/* Button */}
+
+
+
+
+        {/* black Button */}
         <div style={{ marginTop: "auto", display: "flex", justifyContent: "flex-end" }}>
           <button style={{
             background: "#222",
             color: "#fff",
             border: "none",
             borderRadius: "0 0 24px 24px",
-            padding: "2px 10px",
+            padding: "2px 216px",
             fontSize: 18,
             fontWeight: 500,
             cursor: "pointer",
