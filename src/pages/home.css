@@ -279,3 +279,108 @@
     background: linear-gradient(90deg, #2196F3 0%, #64B5F6 100%);
     opacity: 0.5;
 }
+
+/* Ticket Grid Layout */
+.ticket-grid {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 40px 0 0 0;
+    border-top: 4px solid #ededed;
+    background: #f7f7f7;
+}
+
+/* Ticket Card */
+.ticket-card {
+    width: 300px;
+    background: #f6f6f6;
+    border-radius: 8px;
+    border: 2px solid #eaeaea;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.3s;
+}
+
+.ticket-card-header {
+    padding: 0;
+    text-align: center;
+    background: #ededed;
+}
+
+.ticket-card-header h2 {
+    padding: 18px 0 0 0;
+    font-size: 25px;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: 1px;
+    color: #313131;
+}
+
+.ticket-card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 0;
+}
+
+.ticket-card-info {
+    padding: 18px 28px 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ticket-card-code {
+    font-size: 30px;
+    font-weight: 300;
+    font-family: monospace;
+}
+
+.ticket-card-barcode {
+    width: 80px;
+    height: 25px;
+    background: repeating-linear-gradient(90deg, #232323 0 7px, transparent 7px 12px);
+    border-radius: 3px;
+    margin-left: 16px;
+}
+
+.ticket-card-footer {
+    border-top: 2px dashed #e1e1e1;
+    margin: 16px 0 0 0;
+    padding: 14px 28px 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 25px;
+    color: #474747;
+}
+
+.explore-btn {
+    font-size: 15px;
+    background: #ededed;
+    color: #474747;
+    border: none;
+    border-radius: 7px;
+    padding: 8px 24px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    font-weight: 200;
+}
+
+.explore-btn .arrow {
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+.ticket-card:hover .explore-btn,
+.explore-btn.hovered {
+    background: #110d08;
+    color: #fff;
+}

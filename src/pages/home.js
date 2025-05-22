@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import './home.css';
+import Test from './test';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Home = () => {
     const [destinationRef, destinationInView] = useInView({
@@ -43,102 +45,66 @@ const Home = () => {
             place: 'BALI · INDONESIA',
             code: 'CDG',
             image: '/bali2.jpg',
+            description: 'Experience the beauty of Bali with our exclusive packages.',
         },
         {
             place: 'KERALA · INDIA',
             code: 'NRT',
             image: '/Kerala.jpg',
+            description: 'Explore the backwaters and lush greenery of Kerala.',
         },
         {
             place: 'HANOI · VIETNAM',
             code: 'DPS',
             image: '/hanoi2.jpg',
+            description: 'Discover the vibrant culture of Hanoi.',
         },
         {
             place: 'TBILISI · GEORGIA',
             code: 'FLR',
             image: '/Tbilisi.jpg',
+            description: 'Enjoy the charm of Tbilisi, Georgia.',
         },
     ];
     
     function TicketGrid() {
-      return (
-        <div style={{ 
-          display: 'flex', 
-          justifyContent: 'center', 
-          gap: '24px',
-          padding: '40px 0 0 0',
-          borderTop: '4px solid #ededed',
-          background: '#f7f7f7'
-        }}>
-          {cityTickets.map((item, idx) => (
-            <div key={idx} style={{
-              width: 420,
-              background: '#f6f6f6',
-              borderRadius: 8,
-              border: '2px solid #eaeaea',
-              boxShadow: '0 4px 18px rgba(0, 0, 0, 0.1)',
-              overflow: 'hidden',
-              display: 'flex',
-              flexDirection: 'column',
-              marginBottom: 24,
-            }}>
-              <div style={{ padding: 0, textAlign: 'center', background: '#ededed' }}>
-                <h2 style={{
-                  padding: '18px 0 0 0',
-                  fontSize: 30,
-                  fontWeight: 500,
-                  margin: 0,
-                  letterSpacing: 1,
-                  color: '#313131'
-                }}>{item.place}</h2>
-              </div>
-              <img
-                src={item.image}
-                alt={item.place}
-                style={{ width: '100%', height: 340, objectFit: 'cover', border: 0 }}
-              />
-              <div style={{
-                padding: '18px 28px 0 28px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between'
-              }}>
-                <div style={{ fontSize: 44, fontWeight: 400, fontFamily: 'monospace' }}>{item.code}</div>
-                <div style={{
-                  width: 120,
-                  height: 32,
-                  background: 'repeating-linear-gradient(90deg, #232323 0 7px, transparent 7px 12px)',
-                  borderRadius: 3,
-                  marginLeft: 16
-                }} />
-              </div>
-              <div style={{
-                borderTop: '2px dashed #e1e1e1',
-                margin: '16px 0 0 0',
-                padding: '14px 28px 14px 28px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                fontSize: 26,
-                color: '#474747'
-              }}>
-                <span style={{ fontSize: 24 }}>EXPLORE</span>
-                <span style={{
-                  fontSize: 33,
-                  border: '2px solid #232323',
-                  borderRadius: '50%',
-                  width: 36,
-                  height: 36,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>&#8594;</span>
-              </div>
+        const navigate = useNavigate();
+        const [hovered, setHovered] = React.useState(null);
+
+        return (
+            <div className="ticket-grid">
+                {cityTickets.map((item, idx) => (
+                    <div
+                        key={idx}
+                        className={`ticket-card${hovered === idx ? ' hovered' : ''}`}
+                        onMouseEnter={() => setHovered(idx)}
+                        onMouseLeave={() => setHovered(null)}
+                        onClick={() => navigate(`/city/${item.code}`)}
+                    >
+                        <div className="ticket-card-header">
+                            <h2>{item.place}</h2>
+                        </div>
+                        <img
+                            src={item.image}
+                            alt={item.place}
+                            className="ticket-card-img"
+                        />
+                        <div className="ticket-card-info">
+                            <div className="ticket-card-code">{item.code}</div>
+                            <div className="ticket-card-barcode" />
+                        </div>
+                        <div className="ticket-card-footer">
+                            <button
+                                className={`explore-btn${hovered === idx ? ' hovered' : ''}`}
+                                tabIndex={-1}
+                            >
+                                EXPLORE <span className="arrow">&#8594;</span>
+                            </button>
+                        </div>
+                    </div>
+                ))}
             </div>
-          ))}
-        </div>
-      );
+        );
     }        
 
 
@@ -261,6 +227,7 @@ const Home = () => {
                 </div>
             </motion.section>
              <TicketGrid />
+             <Test />
 
 
 
@@ -299,6 +266,7 @@ const Home = () => {
                     </div>
                 </div>
             </motion.section>
+
 
             
 

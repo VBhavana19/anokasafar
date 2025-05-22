@@ -6,6 +6,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import FlightTicketCarousel from './pages/test';
 import Destinations from './pages/destinations';
 import SpringDestinations from './pages/SpringDestinations';
+import CityPage from './pages/CityPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         {/* Add more routes as needed */}
         <Route path="/destinations" element={<Destinations />} />
         <Route path="/spring-destinations" element={<SpringDestinations />} />
+        <Route path="/city/:code" element={<CityPage />} />
       </Routes>
     </Router>
   );
