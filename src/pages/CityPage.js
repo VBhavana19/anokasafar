@@ -1,11 +1,13 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import './CityPage.css';
 
 const cityData = {
     CDG: {
         name: 'BALI · INDONESIA',
-        description: 'Experience the beauty of Bali with our exclusive packages.',
-        image: '/bali2.jpg'
+        description: 'This is the space to describe the service. Focus the description on how customers or clients can benefit from using this service; explain how it solves a problem, or makes life easier or more enjoyable. Be sure to include all the relevant details users will want to know, like pricing, duration, and location.',
+        image: '/bali2.jpg',
+        tags: ['City', 'Food', 'Shopping']
     },
     NRT: {
         name: 'KERALA · INDIA',
@@ -31,61 +33,39 @@ export default function CityPage() {
     if (!city) return <div style={{ textAlign: 'center', marginTop: 60, fontSize: 22 }}>City not found.</div>;
 
     return (
-        <div
-            style={{
-                maxWidth: 420,
-                margin: '48px auto',
-                background: '#fff',
-                borderRadius: 18,
-                boxShadow: '0 6px 32px rgba(0,0,0,0.10)',
-                padding: 0,
-                overflow: 'hidden',
-                fontFamily: 'inherit'
-            }}
-        >
-            <img
-                src={city.image}
-                alt={city.name}
-                style={{
-                    width: '100%',
-                    height: 220,
-                    objectFit: 'cover',
-                    borderTopLeftRadius: 18,
-                    borderTopRightRadius: 18
-                }}
-            />
-            <div style={{ padding: '28px 24px 20px 24px' }}>
-                <h1 style={{
-                    fontSize: 28,
-                    fontWeight: 700,
-                    margin: 0,
-                    color: '#232323',
-                    letterSpacing: 1
-                }}>{city.name}</h1>
-                <p style={{
-                    fontSize: 17,
-                    color: '#555',
-                    margin: '18px 0 32px 0',
-                    lineHeight: 1.5
-                }}>{city.description}</p>
-                <button
-                    style={{
-                        width: '100%',
-                        background: '#ff9800',
-                        color: '#fff',
-                        border: 'none',
-                        borderRadius: 8,
-                        padding: '14px 0',
-                        fontSize: 20,
-                        fontWeight: 600,
-                        cursor: 'pointer',
-                        boxShadow: '0 2px 8px rgba(255,152,0,0.10)',
-                        transition: 'background 0.2s'
-                    }}
-                    onClick={() => alert('Booking functionality coming soon!')}
-                >
-                    Book Now
-                </button>
+        <div className="destination-details">
+            <div className="destination-header">
+                <div className="header-content">
+                    <h1>{city.name}</h1>
+                    <div className="destination-code">{code}</div>
+                </div>
+            </div>
+            
+            <div className="destination-content">
+                <div className="description-section">
+                    <h2>Description</h2>
+                    <p>{city.description}</p>
+                    
+                    <div className="tags-section">
+                        <h3>Tags</h3>
+                        <div className="tags">
+                            {city.tags.map(tag => (
+                                <span key={tag} className="tag">{tag}</span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                
+                <div className="action-buttons">
+                    <button className="book-now">
+                        BOOK NOW
+                        <span className="arrow">→</span>
+                    </button>
+                    <Link to="/" className="all-destinations">
+                        ALL DESTINATION
+                        <span className="arrow">←</span>
+                    </Link>
+                </div>
             </div>
         </div>
     );
