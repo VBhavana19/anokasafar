@@ -150,7 +150,7 @@ const Home = () => {
             <header className="hero-section">
                 <div className="container">
                     <div className="hero-content">
-                        <h1>DISCOVER UNIQUE TRAVEL EXPERIENCES WITH ANOKA SAFAR</h1>
+                        <h1>DISCOVER UNIQUE TRAVEL EXPERIENCES WITH ANOKHA SAFAR</h1>
                       
                         <Link to="/explore" className="btn btn-explore">EXPLORE</Link>
                     </div>
